@@ -45,11 +45,11 @@ static NSString * const kLivecodingTVBaseURLString = @"https://www.livecoding.tv
 
 #pragma mark - Sending requests
 
-- (void)sendGETRequestToRoute:(NSString *)route params:(NSDictionary *)params handler:(void (^)(NSString *errorMessage, id responseObject))handler {
+- (void)sendGETRequestToRoute:(NSString *)route params:(NSDictionary *)params handler:(void (^)(NSError *error, id responseObject))handler {
     [self.manager GET:route parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        NSLog(@"asdfadsf");
+        handler(nil, responseObject);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"asdfadsf");
+        handler(error, nil);
     }];
 }
 

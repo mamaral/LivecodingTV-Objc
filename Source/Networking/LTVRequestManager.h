@@ -17,10 +17,8 @@
 
 @property (nonatomic, strong) NSString *apiKey;
 
-
 + (instancetype)sharedInstance;
 
-
-- (void)sendGETRequestToRoute:(NSString *)route params:(NSDictionary *)params handler:(void (^)(NSString *errorMessage, id responseObject))handler;
+- (void)sendGETRequestToRoute:(NSString *)route params:(NSDictionary *)params handler:(void (^)(NSError *error, id responseObject))handler;
 
 @end
