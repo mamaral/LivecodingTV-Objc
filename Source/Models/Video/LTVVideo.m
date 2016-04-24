@@ -26,7 +26,7 @@
     _title = dictionary[@"title"];
     _videoDescription = dictionary[@"description"];
     _codingCategory = dictionary[@"coding_category"];
-    _difficulty = dictionary[@"difficulty"];
+    _difficulty = [self difficultyFromString:dictionary[@"difficulty"]];
     _language = dictionary[@"language"];
     _productType = [self productTypeFromString:dictionary[@"product_type"]];
     _creationTime = dictionary[@"creation_time"];
@@ -36,30 +36,6 @@
     _viewingURLs = dictionary[@"viewing_urls"];
 
     return self;
-}
-
-- (LTVProductType)productTypeFromString:(NSString *)string {
-    if ([string isEqualToString:@"game"]) {
-        return LTVProductTypeGame;
-    } else if ([string isEqualToString:@"app"]) {
-        return LTVProductTypeApp;
-    } else if ([string isEqualToString:@"website"]) {
-        return LTVProductTypeWebsite;
-    } else if ([string isEqualToString:@"codetalk"]) {
-        return LTVProductTypeCodeTalk;
-    } else {
-        return LTVProductTypeOther;
-    }
-}
-
-- (LTVRegion)regionFromString:(NSString *)string {
-    if ([string isEqualToString:@"us-stlouis"]) {
-        return LTVRegionStLouis;
-    } else if ([string isEqualToString:@"eu-london"]) {
-        return LTVRegionLondon;
-    } else {
-        return LTVRegionOther;
-    }
 }
 
 

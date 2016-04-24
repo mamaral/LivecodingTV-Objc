@@ -17,7 +17,7 @@
 @property (nonatomic, strong, readonly) NSString *title;
 @property (nonatomic, strong, readonly) NSString *videoDescription;
 @property (nonatomic, strong, readonly) NSString *codingCategory;
-@property (nonatomic, strong, readonly) NSString *difficulty;
+@property (nonatomic, readonly) LTVDifficulty difficulty;
 @property (nonatomic, strong, readonly) NSString *language;
 @property (nonatomic, readonly) LTVProductType productType;
 @property (nonatomic, strong, readonly) NSString *creationTime;
