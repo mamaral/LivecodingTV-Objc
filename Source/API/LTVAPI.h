@@ -8,26 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, LTVDifficulty) {
-    LTVDifficultyBeginner = 0,
-    LTVDifficultyIntermediate,
-    LTVDifficultyExpert
-};
-
-typedef NS_ENUM(NSUInteger, LTVProductType) {
-    LTVProductTypeGame = 0,
-    LTVProductTypeApp,
-    LTVProductTypeWebsite,
-    LTVProductTypeCodeTalk,
-    LTVProductTypeOther
-};
-
-typedef NS_ENUM(NSUInteger, LTVRegion) {
-    LTVRegionStLouis = 0,
-    LTVRegionLondon,
-    LTVRegionOther
-};
-
 
 @interface LTVAPI : NSObject
 

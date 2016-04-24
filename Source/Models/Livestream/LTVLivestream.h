@@ -15,7 +15,7 @@
 @property (nonatomic, strong, readonly) NSString *title;
 @property (nonatomic, strong, readonly) NSString *streamDescription;
 @property (nonatomic, strong, readonly) NSString *codingCategory;
-@property (nonatomic, strong, readonly) NSString *difficulty;
+@property (nonatomic, readonly) LTVDifficulty difficulty;
 @property (nonatomic, strong, readonly) NSString *language;
 @property (nonatomic, strong, readonly) NSString *tags;
 @property (nonatomic, readonly) BOOL isLive;

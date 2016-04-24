@@ -23,7 +23,7 @@
     _title = dictionary[@"title"];
     _streamDescription = dictionary[@"description"];
     _codingCategory = dictionary[@"coding_category"];
-    _difficulty = dictionary[@"difficulty"];
+    _difficulty = [self difficultyFromString:dictionary[@"difficulty"]];
     _language = dictionary[@"language"];
     _tags = dictionary[@"tags"];
     _isLive = [dictionary[@"is_live"] boolValue];

@@ -24,4 +24,43 @@
 }
 
 
+#pragma mark - Conversions
+
+- (LTVDifficulty)difficultyFromString:(NSString *)string {
+    if ([string isEqualToString:@"beginner"]) {
+        return LTVDifficultyBeginner;
+    } else if ([string isEqualToString:@"intermediate"]) {
+        return LTVDifficultyIntermediate;
+    } else if ([string isEqualToString:@"expert"]) {
+        return LTVDifficultyExpert;
+    } else {
+        return LTVDifficultyOther;
+    }
+}
+
+- (LTVProductType)productTypeFromString:(NSString *)string {
+    if ([string isEqualToString:@"game"]) {
+        return LTVProductTypeGame;
+    } else if ([string isEqualToString:@"app"]) {
+        return LTVProductTypeApp;
+    } else if ([string isEqualToString:@"website"]) {
+        return LTVProductTypeWebsite;
+    } else if ([string isEqualToString:@"codetalk"]) {
+        return LTVProductTypeCodeTalk;
+    } else {
+        return LTVProductTypeOther;
+    }
+}
+
+- (LTVRegion)regionFromString:(NSString *)string {
+    if ([string isEqualToString:@"us-stlouis"]) {
+        return LTVRegionStLouis;
+    } else if ([string isEqualToString:@"eu-london"]) {
+        return LTVRegionLondon;
+    } else {
+        return LTVRegionOther;
+    }
+}
+
+
 @end
