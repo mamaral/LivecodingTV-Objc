@@ -22,6 +22,6 @@
 @property (nonatomic, readonly) BOOL isFeatured;
 @property (nonatomic, readonly) BOOL isRecurring;
 
-+ (void)getScheduledBroadcastsWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSString *errorMessage, NSArray *broadcasts))handler;
++ (void)getScheduledBroadcastsWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSError *error, NSArray *broadcasts))handler;
 
 @end

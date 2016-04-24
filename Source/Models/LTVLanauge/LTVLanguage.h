@@ -12,6 +12,6 @@
 
 @property (nonatomic, strong, readonly) NSString *name;
 
-+ (void)getLanguagesWithHandler:(void (^)(NSString *errorMessage, NSArray *languages))handler;
++ (void)getLanguagesWithHandler:(void (^)(NSError *error, NSArray *languages))handler;
 
 @end

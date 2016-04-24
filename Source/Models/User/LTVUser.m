@@ -7,6 +7,7 @@
 //
 
 #import "LTVUser.h"
+#import "LTVRequestManager.h"
 
 @implementation LTVUser
 
@@ -36,19 +37,34 @@
 
 #pragma mark - Requests
 
-+ (void)getUserWithHandler:(void (^)(NSString *errorMessage, LTVUser *user))handler {
++ (void)getUserWithSlug:(NSString *)slug handler:(void (^)(NSError *error, LTVUser *user))handler {
+    NSParameterAssert(slug);
+    NSParameterAssert(handler);
+
+    NSString *route = [NSString stringWithFormat:@"users/%@", slug];
+
+    [[LTVRequestManager sharedInstance] sendGETRequestToRoute:route params:nil handler:^(NSError *error, id responseObject) {
+        if (error) {
+            handler(error, nil);
+            return;
+        }
+
+        NSDictionary *responseDict = (NSDictionary *)responseObject;
+        LTVUser *video = [[LTVUser alloc] initWithDictionary:responseDict];
+
+        handler(nil, video);
+    }];
+}
+
+- (void)getFollowersWithHandler:(void (^)(NSError *error, NSArray *followers))handler {
 
 }
 
-- (void)getFollowersWithHandler:(void (^)(NSString *errorMessage, NSArray *followers))handler {
+- (void)getFollowsWithHandler:(void (^)(NSError *error, NSArray *follows))handler {
 
 }
 
-- (void)getFollowsWithHandler:(void (^)(NSString *errorMessage, NSArray *follows))handler {
-
-}
-
-- (void)getVideosWithHandler:(void (^)(NSString *errorMessage, NSArray *videos))handler {
+- (void)getVideosWithHandler:(void (^)(NSError *error, NSArray *videos))handler {
 
 }
 

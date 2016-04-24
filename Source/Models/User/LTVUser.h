@@ -23,10 +23,10 @@
 @property (nonatomic, strong, readonly) NSString *registrationDateString;
 @property (nonatomic, strong, readonly) NSString *timezone;
 
-+ (void)getUserWithHandler:(void (^)(NSString *errorMessage, LTVUser *user))handler;
++ (void)getUserWithSlug:(NSString *)slug handler:(void (^)(NSError *error, LTVUser *user))handler;
 
-- (void)getFollowersWithHandler:(void (^)(NSString *errorMessage, NSArray *followers))handler;
-- (void)getFollowsWithHandler:(void (^)(NSString *errorMessage, NSArray *follows))handler;
-- (void)getVideosWithHandler:(void (^)(NSString *errorMessage, NSArray *videos))handler;
+- (void)getFollowersWithHandler:(void (^)(NSError *error, NSArray *followers))handler;
+- (void)getFollowsWithHandler:(void (^)(NSError *error, NSArray *follows))handler;
+- (void)getVideosWithHandler:(void (^)(NSError *error, NSArray *videos))handler;
 
 @end

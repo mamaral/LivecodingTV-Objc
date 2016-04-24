@@ -22,7 +22,7 @@
 @property (nonatomic, readonly) NSInteger viewersLive;
 @property (nonatomic, strong, readonly) NSArray *viewingURLs;
 
-+ (void)getOnAirLivestreamsWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSString *errorMessage, NSArray *streams))handler;
-+ (void)getLivestreamsWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSString *errorMessage, NSArray *streams))handler;
++ (void)getOnAirLivestreamsWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSError *error, NSArray *streams))handler;
++ (void)getLivestreamsWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSError *error, NSArray *streams))handler;
 
 @end

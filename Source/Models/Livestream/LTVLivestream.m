@@ -36,13 +36,13 @@
 
 #pragma mark - Requests
 
-+ (void)getOnAirLivestreamsWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSString *errorMessage, NSArray *streams))handler {
++ (void)getOnAirLivestreamsWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSError *error, NSArray *streams))handler {
     NSString *livestreamRoute = @"livestreams/onair";
     NSDictionary *params = @{@"limit": @(limit), @"offset": @(offset)};
 
-    [[LTVRequestManager sharedInstance] sendGETRequestToRoute:livestreamRoute params:params handler:^(NSString *errorMessage, id responseObject) {
-        if (errorMessage) {
-            handler(errorMessage, nil);
+    [[LTVRequestManager sharedInstance] sendGETRequestToRoute:livestreamRoute params:params handler:^(NSError *error, id responseObject) {
+        if (error) {
+            handler(error, nil);
             return;
         }
 
@@ -62,13 +62,13 @@
     }];
 }
 
-+ (void)getLivestreamsWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSString *errorMessage, NSArray *streams))handler {
++ (void)getLivestreamsWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSError *error, NSArray *streams))handler {
     NSString *livestreamRoute = @"livestreams";
     NSDictionary *params = @{@"limit": @(limit), @"offset": @(offset)};
 
-    [[LTVRequestManager sharedInstance] sendGETRequestToRoute:livestreamRoute params:params handler:^(NSString *errorMessage, id responseObject) {
-        if (errorMessage) {
-            handler(errorMessage, nil);
+    [[LTVRequestManager sharedInstance] sendGETRequestToRoute:livestreamRoute params:params handler:^(NSError *error, id responseObject) {
+        if (error) {
+            handler(error, nil);
             return;
         }
 

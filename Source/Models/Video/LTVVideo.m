@@ -64,15 +64,15 @@
 
 #pragma mark - Requests
 
-+ (void)getVideosWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSString *errorMessage, NSArray *videos))handler {
++ (void)getVideosWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSError *error, NSArray *videos))handler {
     NSParameterAssert(handler);
 
     NSString *route = @"videos";
     NSDictionary *params = @{@"limit": @(limit), @"offset": @(offset)};
 
-    [[LTVRequestManager sharedInstance] sendGETRequestToRoute:route params:params handler:^(NSString *errorMessage, id responseObject) {
-        if (errorMessage) {
-            handler(errorMessage, nil);
+    [[LTVRequestManager sharedInstance] sendGETRequestToRoute:route params:params handler:^(NSError *error, id responseObject) {
+        if (error) {
+            handler(error, nil);
             return;
         }
 
@@ -92,15 +92,15 @@
     }];
 }
 
-+ (void)getVideoWithSlug:(NSString *)slug handler:(void (^)(NSString *errorMessage, LTVVideo *video))handler {
++ (void)getVideoWithSlug:(NSString *)slug handler:(void (^)(NSError *error, LTVVideo *video))handler {
     NSParameterAssert(slug);
     NSParameterAssert(handler);
 
     NSString *route = [NSString stringWithFormat:@"videos/%@", slug];
 
-    [[LTVRequestManager sharedInstance] sendGETRequestToRoute:route params:nil handler:^(NSString *errorMessage, id responseObject) {
-        if (errorMessage) {
-            handler(errorMessage, nil);
+    [[LTVRequestManager sharedInstance] sendGETRequestToRoute:route params:nil handler:^(NSError *error, id responseObject) {
+        if (error) {
+            handler(error, nil);
             return;
         }
 

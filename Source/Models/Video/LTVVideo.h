@@ -29,7 +29,7 @@
 
 - (UIImage *)generateVideoThumbnail;
 
-+ (void)getVideosWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSString *errorMessage, NSArray *videos))handler;
-+ (void)getVideoWithSlug:(NSString *)slug handler:(void (^)(NSString *errorMessage, LTVVideo *video))handler;
++ (void)getVideosWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSError *error, NSArray *videos))handler;
++ (void)getVideoWithSlug:(NSString *)slug handler:(void (^)(NSError *error, LTVVideo *video))handler;
 
 @end

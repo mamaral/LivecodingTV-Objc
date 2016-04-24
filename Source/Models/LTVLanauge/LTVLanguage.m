@@ -26,14 +26,14 @@
 
 #pragma mark - Requests
 
-+ (void)getLanguagesWithHandler:(void (^)(NSString *errorMessage, NSArray *languages))handler {
++ (void)getLanguagesWithHandler:(void (^)(NSError *error, NSArray *languages))handler {
     NSParameterAssert(handler);
 
     NSString *route = @"languages";
 
-    [[LTVRequestManager sharedInstance] sendGETRequestToRoute:route params:nil handler:^(NSString *errorMessage, id responseObject) {
-        if (errorMessage) {
-            handler(errorMessage, nil);
+    [[LTVRequestManager sharedInstance] sendGETRequestToRoute:route params:nil handler:^(NSError *error, id responseObject) {
+        if (error) {
+            handler(error, nil);
             return;
         }
 

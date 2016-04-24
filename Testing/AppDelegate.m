@@ -21,9 +21,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [UIViewController new];
 
-    [LTVLivestream getLivestreamsWithOffset:0 limit:100 handler:^(NSString *errorMessage, NSArray *streams) {
-        
-    }];
+//    [LTVLivestream getLivestreamsWithOffset:0 limit:100 handler:^(NSError *error, NSArray *streams) {
+//        
+//    }];
 
     [self.window makeKeyAndVisible];
 

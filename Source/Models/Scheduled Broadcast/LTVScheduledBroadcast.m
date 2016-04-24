@@ -35,15 +35,15 @@
 
 #pragma mark - Requests
 
-+ (void)getScheduledBroadcastsWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSString *errorMessage, NSArray *broadcasts))handler {
++ (void)getScheduledBroadcastsWithOffset:(NSInteger)offset limit:(NSInteger)limit handler:(void (^)(NSError *error, NSArray *broadcasts))handler {
     NSParameterAssert(handler);
 
     NSString *route = @"scheduledbroadcasts";
     NSDictionary *params = @{@"limit": @(limit), @"offset": @(offset)};
 
-    [[LTVRequestManager sharedInstance] sendGETRequestToRoute:route params:params handler:^(NSString *errorMessage, id responseObject) {
-        if (errorMessage) {
-            handler(errorMessage, nil);
+    [[LTVRequestManager sharedInstance] sendGETRequestToRoute:route params:params handler:^(NSError *error, id responseObject) {
+        if (error) {
+            handler(error, nil);
             return;
         }
 
