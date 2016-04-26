@@ -17,11 +17,19 @@ DerivedData
 !default.perspectivev3
 xcuserdata
 
+## Pods
+
+Podfile.lock
+Pods/*
+build/
+*.gcno
+
 ## Other
 *.xccheckout
 *.moved-aside
 *.xcuserstate
 *.xcscmblueprint
+*.DS_Store
 
 ## Obj-C/Swift specific
 *.hmap
